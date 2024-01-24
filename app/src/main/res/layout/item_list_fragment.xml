@@ -48,7 +48,7 @@
         android:id="@+id/item_quantity"
         style="@style/Widget.Inventory.Header"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="@dimen/margin_between_elements"
+
         android:text="@string/quantity_in_stock"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
