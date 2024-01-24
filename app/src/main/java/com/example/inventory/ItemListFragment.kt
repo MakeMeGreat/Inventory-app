@@ -24,7 +24,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.inventory.databinding.ItemListFragmentBinding
 
 /**
@@ -52,13 +51,14 @@ class ItemListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val adapter = ItemListAdapter{
-            val action = ItemListFragmentDirections.actionItemListFragmentToItemDetailFragment(it.id)
+        val adapter = ItemListAdapter {
+            val action =
+                ItemListFragmentDirections.actionItemListFragmentToItemDetailFragment(it.id)
             findNavController().navigate(action)
         }
         binding.recyclerView.adapter = adapter
-        viewModel.allItems.observe(this.viewLifecycleOwner) {
-            items -> items.let {
+        viewModel.allItems.observe(this.viewLifecycleOwner) { items ->
+            items.let {
                 adapter.submitList(it)
             }
         }

@@ -8,7 +8,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.inventory.data.Item
 import com.example.inventory.data.ItemDao
 import kotlinx.coroutines.launch
-import java.text.NumberFormat
 
 class InventoryViewModel(private val itemDao: ItemDao) : ViewModel() {
 
@@ -39,7 +38,7 @@ class InventoryViewModel(private val itemDao: ItemDao) : ViewModel() {
         itemPrice: String,
         itemCount: String
     ): Item {
-        val price = itemPrice.replace(',','.')
+        val price = itemPrice.replace(',', '.')
         return Item(id, itemName, price.toDouble(), itemCount.toInt())
     }
 
